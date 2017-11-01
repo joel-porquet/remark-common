@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>[% title %]</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="[% common %]/base.css">
+        [% # Include CSS file 'local.css' if it exists
+           TRY %]
+            [% USE File("local.css") %]
+        <link rel="stylesheet" href="[% File.path %]">
+        [% CATCH %]
+        [% END %]
+    </head>
+    <body>
+        <textarea id="source">
+[% PROCESS content %]
+        </textarea>
+        <script src="[% common %]/remark-latest.min.js"></script>
+        <script src="[% common %]/hljs.gdb.js"></script>
+        <script src="[% common %]/hljs.makefile.js"></script>
+        <script src="[% common %]/hljs.terminal.js"></script>
+        <script src="[% common %]/remark.scale.js"></script>
+        <script>
+            var slideshow = remark.create({
+                /* Default language for syntax highlighting */
+                highlightLanguage: 'terminal',
+                /* Highlight inline code (inside simple backticks) */
+                highlightSpans: true,
+                /* Mark lines marked with an asterix */
+                highlightLines: true,
+            });
+        </script>
+    </body>
+</html>
+
