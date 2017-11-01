@@ -19,7 +19,7 @@ endif
 find_files = $(shell find $(1) -type f)
 
 ## List of markdown files and resulting html files
-md := $(call find_files,$(src))
+md := $(filter %.md,$(call find_files,$(src)))
 html := $(md:%.md=%.html)
 pdf := $(html:%.html=%.pdf)
 
