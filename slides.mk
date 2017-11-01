@@ -44,7 +44,7 @@ echo-cmd = $(if $($(quiet)cmd_$(1)),\
 cmd = @$(echo-cmd) $(cmd_$(1))
 
 ## Our main rule building all our targets
-all: $(fontcss) $(html) $(pdf)
+all: $(fontcss) $(html)
 
 # Font generation rule
 quiet_cmd_fonts = FONTS $@
@@ -64,6 +64,8 @@ quiet_cmd_tpage = TPAGE $@
 				  $< > $@
 %.html: %.md $(dep)
 	$(call cmd,tpage)
+
+pdf: all $(pdf)
 
 ## HTML to pdf rule
 quiet_cmd_pdfgen = PDF $@
