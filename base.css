@@ -10,7 +10,6 @@
 /* General font */
 html {
     font-family: 'Noto Sans', sans-serif;
-    line-height: 1.2;
 }
 
 .remark-code, .remark-inline-code {
@@ -49,10 +48,10 @@ li {
 .LARGE { font-size: 115%;  }
 .Large { font-size: 110%;  }
 .large { font-size: 105%;  }
-.small, .small .remark-code-line { font-size: 90%;  }
-.footnotesize, .footnotesize .remark-code-line { font-size: 80%; }
-.scriptsize, .scriptsize .remark-code-line { font-size: 70%; }
-.tiny, .tiny .remark-code-line { font-size: 60%; }
+.small { font-size: 90%; }
+.footnotesize { font-size: 80%; }
+.scriptsize { font-size: 70%; }
+.tiny { font-size: 60%; }
 
 /* Color */
 .red { color: red; }
