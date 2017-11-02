@@ -205,6 +205,6 @@ table-horizontal tbody > tr:last-child > td {
     .remark-code, .remark-inline-code {
         /* Can't get stupid Chromium to include the monospace fonts I want! */
         /* https://bugs.chromium.org/p/chromium/issues/detail?id=772482 */
-        font-family: 'Andale Mono';
+        font-family: 'DejaVu Sans Mono';
     }
 }
