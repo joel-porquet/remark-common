@@ -34,8 +34,8 @@ function include_ttf {
     # Write into CSS
     addline "@font-face {"
     addline "\tfont-family: \"${ttf_family}\";"
-    addline "\tfont-weight: \"${ttf_weight}\";"
-    addline "\tfont-style: \"${ttf_style}\";"
+    addline "\tfont-weight: ${ttf_weight};"
+    addline "\tfont-style: ${ttf_style};"
     addline "\tsrc: url(data:font/ttf;base64,${ttf_content_base64}) format('truetype');"
     addline "}"
 }
