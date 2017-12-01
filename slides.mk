@@ -61,6 +61,7 @@ quiet_cmd_tpage = TPAGE $@
       cmd_tpage = $(TPAGE) \
 				  --define common=$(call dir_relpath,$(current_dir),$(@D)) \
 				  --include_path=$(current_dir) \
+				  --include_path=$(@D) \
 				  $< > $@
 %.html: %.md $(dep)
 	$(call cmd,tpage)
