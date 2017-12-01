@@ -65,7 +65,7 @@ li {
     background-color: #F0F0F0;
 }
 
-/* Vertical spacer */
+/* Vertical spacer (height of a line) */
 .lspacer { height: 1em; width: 100%; margin: 0; padding: 0; border: 0; display: block; }
 
 /* Two-column layout */
