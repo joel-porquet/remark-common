@@ -6,6 +6,7 @@
  */
 
 remark.macros.newline = function (n) {
+  n = n || 1; /* default value is 1 line */
   return '<div style="'
     + 'height:' + n + 'em; '
     + 'width:100%; '
