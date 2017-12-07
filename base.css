@@ -27,6 +27,11 @@ h1, h2, h3, h4 {
 .scriptsize { font-size: 70%; }
 .tiny { font-size: 60%; }
 
+/* Make nested levels in lists be smaller */
+li > ul > li {
+    font-size: 95%;
+}
+
 /*
  * Margins
  */
