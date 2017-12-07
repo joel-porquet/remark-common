@@ -75,9 +75,6 @@ li {
 /* Colored text */
 .red { color: red; }
 
-/* Vertical spacer (height of a line) */
-.lspacer { height: 1em; width: 100%; margin: 0; padding: 0; border: 0; display: block; }
-
 /* Two-column layout */
 .lcol { width: 49%; float: left; clear: left;}
 .rcol { width: 49%; float: right; clear: right;}
