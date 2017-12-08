@@ -84,6 +84,9 @@ li {
 .footnote { position: absolute; bottom: 12px; left: 20px; font-size: 80%; }
 .ref { color: red; vertical-align: super; font-size: 80%; }
 
+/* Code filename */
+.cfilename { position: relative; top: calc(-1em - 10px) }
+
 /*
  * Quote blocks
  */

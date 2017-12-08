@@ -1,0 +1,8 @@
+
+[% MACRO cfile(file) BLOCK %]
+```C
+[% INSERT "code/$file" %]
+```
+.cfilename[.scriptsize[.right[[% file %]]]]
+[% END %]
+
