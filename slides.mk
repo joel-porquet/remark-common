@@ -21,7 +21,8 @@ find_files = $(shell find $(1) -type f)
 ## List of markdown files and resulting html files
 md := $(filter %.md,$(call find_files,$(src)))
 html := $(md:%.md=%.html)
-pdf := $(html:%.html=%.pdf)
+print := $(md:%.md=%.print.html)
+pdf := $(print:%.print.html=%.pdf)
 
 ## Extra dependencies for all targets
 dep += $(addprefix $(current_dir),template.html)
@@ -59,14 +60,24 @@ dir_relpath = $(shell perl -e "use File::Spec; print File::Spec->abs2rel('$(1)',
 ## Markdown to HTML rule
 quiet_cmd_tpage = TPAGE $@
       cmd_tpage = $(TPAGE) \
+				  --define incslides=$(INCSLIDES) \
 				  --define common=$(call dir_relpath,$(current_dir),$(@D)) \
 				  --include_path=$(current_dir) \
 				  --include_path=$(@D) \
 				  $< > $@
+%.html: INCSLIDES := false
 %.html: %.md $(dep)
 	$(call cmd,tpage)
 
-pdf: all $(pdf)
+## HTML print main rule
+print: $(fontcss) $(print)
+
+%.print.html: INCSLIDES := true
+%.print.html: %.md $(dep)
+	$(call cmd,tpage)
+
+## PDF main rule
+pdf: $(print) $(pdf)
 
 ## HTML to pdf rule
 quiet_cmd_pdfgen = PDF $@
@@ -74,7 +85,7 @@ quiet_cmd_pdfgen = PDF $@
 				  --print-to-pdf=$@ \
 				  file://$(abspath $<) \
 				  2>/dev/null
-%.pdf: %.html $(call find_files,$(current_dir))
+%.pdf: %.print.html $(call find_files,$(current_dir))
 	$(call cmd,pdfgen)
 
 ## PDF Automatic dependencies
@@ -86,4 +97,4 @@ $(foreach f,$(html),$(eval $(call auto_dep,$(f))))
 
 ## Clean rule
 clean:
-	$(Q)rm -f $(fontcss) $(html) $(pdf)
+	$(Q)rm -f $(fontcss) $(html) $(print) $(pdf)
