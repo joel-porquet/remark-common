@@ -3,6 +3,6 @@
 ```C
 [% INSERT "code/$file" %]
 ```
-.cfilename[.scriptsize[.right[[% file %]]]]
+![:filename]([% file %])
 [% END %]
 
