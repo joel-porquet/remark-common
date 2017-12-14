@@ -47,7 +47,7 @@ p, pre, img {
     margin-top: 0.5em;
     margin-bottom: 0.3em;
 }
-ul {
+ul, ol {
     margin-top: 0.0em;
     margin-bottom: 0.0em;
 }
