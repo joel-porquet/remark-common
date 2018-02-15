@@ -16,7 +16,7 @@ $(error Could not find executable '$(TPAGE)' in PATH. \
 endif
 
 ## Find all files under a directory
-find_files = $(shell find $(1) -type f)
+find_files = $(shell find $(1) -type f 2>/dev/null)
 
 ## List of markdown files and resulting html files
 md := $(filter %.md,$(call find_files,$(src)))
