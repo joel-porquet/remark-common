@@ -26,6 +26,7 @@ pdf := $(print:%.print.html=%.pdf)
 
 ## Extra dependencies for all targets
 dep += $(addprefix $(current_dir),template.html)
+dep += $(addprefix $(current_dir),tt.cfile)
 
 ## Font generation
 fontdir := $(addprefix $(current_dir),fonts)
