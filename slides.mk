@@ -67,7 +67,7 @@ quiet_cmd_tpage = TPAGE $@
 				  --include_path=$(@D) \
 				  $< > $@
 %.html: INCSLIDES := false
-%.html: %.md $(dep)
+%.html: %.md $(dep) $$(call find_files,$$(@D)/code)
 	$(call cmd,tpage)
 
 ## HTML print main rule
