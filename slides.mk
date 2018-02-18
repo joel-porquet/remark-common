@@ -61,6 +61,7 @@ dir_relpath = $(shell perl -e "use File::Spec; print File::Spec->abs2rel('$(1)',
 ## Markdown to HTML rule
 quiet_cmd_tpage = TPAGE $@
       cmd_tpage = $(TPAGE) \
+				  --eval_perl \
 				  --define incslides=$(INCSLIDES) \
 				  --define common=$(call dir_relpath,$(current_dir),$(@D)) \
 				  --include_path=$(current_dir) \

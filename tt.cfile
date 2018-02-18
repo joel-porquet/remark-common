@@ -1,8 +1,58 @@
+[% PERL %]
+use Data::Dumper qw(Dumper);
+sub range_filter_factory {
+    my ($context, $ranges) = @_;
+    # Default range is all the lines if unspecified
+    $ranges = '0..-1' unless defined $ranges;
+    # Split comma-separated ranges into array
+    my @ranges = split /,/, $ranges;
 
-[% MACRO cfile(file) BLOCK %]
+    return sub {
+        my $text = shift;
+        $text = '' unless defined $text;
+        # Split text into array of lines
+        my @lines = split /^/, $text;
+        my $output = '';
+        my $flag = 0;
+        # Iterate through the ranges
+        foreach my $range (@ranges) {
+            # In between ranges, print "..."
+            if (scalar @ranges > 1 and $flag eq 1) {
+                $output .= "...\n";
+            }
+            # Get the start and end indexes of a range
+            my @index = split /\.\./, $range;
+            # If range is scalar, just include that line
+            if (scalar @index == 1) {
+                # Perl numbers array from 0, but ranges are specified from 1
+                $output .= @lines[$index[0] - 1];
+            } else {
+                # Ranges with start and end
+                my $start = $index[0] - 1;
+                my $end = $index[1];
+                # If end index is -1, get to the end of the file
+                if ($end eq -1) { $end = $#lines; } else { $end -= 1; }
+                # It seems like empty lines are considered as "undefined"
+                $output .= join '', map { defined ? $_ : '' } @lines[$start ..  $end];
+            }
+            $flag = 1;
+        }
+        return $output;
+    }
+}
+$context->define_filter('lines', \&range_filter_factory, 1)
+[% END %]
+
+[% MACRO cfile(file, ranges) BLOCK %]
+[% IF ranges %]
+```C
+[% INSERT "code/$file" | lines(ranges) %]
+```
+[% ELSE %]
 ```C
 [% INSERT "code/$file" %]
 ```
+[% END %]
 ![:filename]([% file %])
 [% END %]
 
