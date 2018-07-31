@@ -23,8 +23,11 @@
         <script src="[% common %]/remark.filename.js"></script>
         <script src="[% common %]/remark.newline.js"></script>
         <script src="[% common %]/remark.scale.js"></script>
-        <script>
-            var slideshow = remark.create({
+        <script src="[% common %]/katex.min.js"></script>
+        <script src="[% common %]/auto-render.min.js"></script>
+        <link rel="stylesheet" href="[% common %]/katex.min.css">
+        <script type="text/javascript">
+            var options = {
                 /* Default language for syntax highlighting */
                 highlightLanguage: 'terminal',
                 /* Highlight inline code (inside simple backticks) */
@@ -35,7 +38,18 @@
                 disableIncrementalSlides: [% incslides %],
                 /* Disable counting incremental slides */
                 countIncrementalSlides: false,
-            });
+            };
+
+            var renderMath = function() {
+                renderMathInElement(document.body, { delimiters: [
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\[", right: "\\]", display: true},
+                ]});
+            }
+
+            var slideshow = remark.create(options, renderMath);
         </script>
     </body>
 </html>
