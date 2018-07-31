@@ -7,10 +7,10 @@
 html {
     font-family: 'Noto Sans', sans-serif;
 }
+
 .remark-code, .remark-inline-code {
     font-family: 'Noto Sans Mono', monospace;
-    font-variant-ligatures: none;
-    /* Make the text wrap if lines are too long */
+    font-variant-ligatures: none; /* Make the text wrap if lines are too long */
     overflow-x: visible;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -43,10 +43,13 @@ li > ul > li {
 h1 {
     margin-top: 0.0em;
     margin-bottom: 0.0em;
+    border-bottom: 1px solid #DAAA00; /* 100% UDC gold */
+    color: #002855; /* 100% UCD blue */
 }
 h2, h3, h4 {
     margin-top: 0.0em;
     margin-bottom: 0.1em;
+    color: #335379; /* 80% UCD blue */
 }
 p, pre, img {
     margin-top: 0.5em;
