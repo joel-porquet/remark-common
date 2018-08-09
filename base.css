@@ -149,6 +149,8 @@ table {
     border-spacing: 0;
     empty-cells: show;
     border: 1px solid #cbcbcb;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
 }
 
 .center-table table {
