@@ -87,6 +87,15 @@ li {
 .lcol { width: 49%; float: left; clear: left;}
 .rcol { width: 49%; float: right; clear: right;}
 .wide { clear: both; }
+/* Subconfigurations */
+.lcol25 { width: 24%; float: left; clear: left;}
+.lcol33 { width: 32%; float: left; clear: left;}
+.lcol66 { width: 65%; float: left; clear: left;}
+.lcol75 { width: 74%; float: left; clear: left;}
+.rcol25 { width: 24%; float: right; clear: right;}
+.rcol33 { width: 32%; float: right; clear: right;}
+.rcol66 { width: 65%; float: right; clear: right;}
+.rcol75 { width: 74%; float: right; clear: right;}
 
 /* Footnotes */
 .footnote { position: absolute; bottom: 12px; left: 20px; font-size: 80%; }
