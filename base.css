@@ -38,6 +38,44 @@ li > ul > li {
 }
 
 /*
+ * Colors
+ */
+
+:root {
+    /* UC Davis Blue */
+    --ucd-blue-100: #002855;
+    --ucd-blue-90: #1A3E68;
+    --ucd-blue-80: #335379;
+    --ucd-blue-70: #4D688C;
+    --ucd-blue-60: #667D9D;
+    --ucd-blue-50: #7F93AE;
+    --ucd-blue-40: #99A9BF;
+    --ucd-blue-30: #B2BDCF;
+    --ucd-blue-20: #CCD4E0;
+    --ucd-blue-10: #E5E9EF;
+    /* UC Davis Gold */
+    --ucd-gold-100: #DAAA00;
+    --ucd-gold-90: #DEB31A;
+    --ucd-gold-80: #E1BB33;
+    --ucd-gold-70: #E5C44D;
+    --ucd-gold-60: #E9CC66;
+    --ucd-gold-50: #ECD47F;
+    --ucd-gold-40: #F0DD99;
+    --ucd-gold-30: #F4E5B2;
+    --ucd-gold-20: #F8EECC;
+    --ucd-gold-10: #FBF6E5;
+    /* UC Davis Black */
+    --ucd-black-100: #000000;
+    --ucd-black-80: #333333;
+    --ucd-black-70: #4C4C4C;
+    --ucd-black-60: #666666;
+    --ucd-black-50: #808080;
+    --ucd-black-40: #999999;
+    --ucd-black-30: #B2B2B2;
+    --ucd-black-20: #CCCCCC;
+}
+
+/*
  * Margins
  */
 h1 {
