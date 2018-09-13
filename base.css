@@ -111,7 +111,7 @@ li {
  * Code (default background)
  */
 .remark-inline-code {
-    background-color: #F0F0F0;
+    background-color: #F0F0F0; /* Match highlight.js' default color */
 }
 
 /*
