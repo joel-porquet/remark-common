@@ -143,9 +143,7 @@ li {
 .footnote { position: absolute; bottom: 12px; left: 20px; font-size: 80%; }
 .ref { color: red; vertical-align: super; font-size: 80%; }
 
-/*
- * Quote blocks
- */
+/* Quote blocks */
 blockquote {
     font-style: italic;
     padding-left: 15px;
