@@ -150,6 +150,9 @@ blockquote {
     border-left: 3px solid var(--ucd-blue-10);
 }
 
+/* Comments */
+.comment { display: none }
+
 /*
  * Presenter mode
  */
