@@ -120,6 +120,7 @@ li {
 
 /* Colored text */
 .red { color: red; }
+.gray { color: gray; }
 
 /* Two-column layout */
 .lcol { width: 49%; float: left; clear: left;}
