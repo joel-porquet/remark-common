@@ -2,7 +2,13 @@
  * Fonts
  */
 
-@import 'fonts/fonts.css';
+@media screen {
+	/* This form of importing fonts does not work when printing. So let's only
+	 * use this import for browser rendering. For printing, we rely on these
+	 * fonts to be installed locally.
+	 */
+    @import 'fonts/fonts.css';
+}
 
 html {
     font-family: 'Noto Sans', sans-serif;
