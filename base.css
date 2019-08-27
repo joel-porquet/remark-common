@@ -137,12 +137,16 @@ li {
 .lcol25 { width: 24%; float: left; clear: left;}
 .lcol33 { width: 32%; float: left; clear: left;}
 .lcol40 { width: 39%; float: left; clear: left;}
+.lcol45 { width: 44%; float: left; clear: left;}
+.lcol55 { width: 54%; float: left; clear: left;}
 .lcol60 { width: 59%; float: left; clear: left;}
 .lcol66 { width: 65%; float: left; clear: left;}
 .lcol75 { width: 74%; float: left; clear: left;}
 .rcol25 { width: 24%; float: right; clear: right;}
 .rcol33 { width: 32%; float: right; clear: right;}
 .rcol40 { width: 39%; float: right; clear: right;}
+.rcol45 { width: 44%; float: right; clear: right;}
+.rcol55 { width: 54%; float: right; clear: right;}
 .rcol60 { width: 59%; float: right; clear: right;}
 .rcol66 { width: 65%; float: right; clear: right;}
 .rcol75 { width: 74%; float: right; clear: right;}
