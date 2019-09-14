@@ -8,8 +8,8 @@
 
 remark.macros.filename = function () {
   var filename = this;
-  return '<div style="margin-top:-1.2em">' +
-    '<span class="right scriptsize">' +
+  return '<div style="margin-top:-1.1em">' +
+    '<span class="right tiny">' +
     filename +
     '</span>' +
     '</div>';
