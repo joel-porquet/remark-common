@@ -28,7 +28,7 @@ h1, h2, h3, h4 {
 }
 
 /* Optional classes for size (mimics LateX commands) */
-.Huge { font-size: 125%;  }
+.Huge { font-size: 130%;  }
 .huge { font-size: 120%;  }
 .LARGE { font-size: 115%;  }
 .Large { font-size: 110%;  }
