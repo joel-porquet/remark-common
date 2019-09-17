@@ -79,7 +79,7 @@ print: $(fontcss) $(print)
 	$(call cmd,tpage)
 
 ## PDF main rule
-pdf: $(print) $(pdf)
+pdf: print $(pdf)
 
 ## HTML to pdf rule
 quiet_cmd_pdfgen = PDF $@
@@ -89,6 +89,11 @@ quiet_cmd_pdfgen = PDF $@
 				  2>/dev/null
 %.pdf: %.print.html $(call find_files,$(current_dir))
 	$(call cmd,pdfgen)
+
+## PDF export
+export: pdf
+	mkdir -p exports
+	cp -u $(pdf) exports
 
 ## PDF Automatic dependencies
 # Make targets be dependent on all local files (except themselves and the
