@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ## Safe execution
 # -e: exit if subcommand fails
