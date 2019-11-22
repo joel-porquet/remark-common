@@ -43,16 +43,25 @@ sub range_filter_factory {
 $context->define_filter('lines', \&range_filter_factory, 1)
 [% END %]
 
-[% MACRO cfile(file, ranges) BLOCK %]
+[% MACRO srcfile(type, file, ranges) BLOCK %]
 [% IF ranges %]
-```C
+```[% type %]
 [% INSERT "code/$file" | lines(ranges) %]
 ```
 [% ELSE %]
-```C
+```[% type %]
 [% INSERT "code/$file" %]
 ```
 [% END %]
 ![:filename]([% file %])
+[% END %]
+
+
+[% MACRO cfile(file, ranges) BLOCK %]
+[% srcfile("C", file, ranges) %]
+[% END %]
+
+[% MACRO mipsfile(file, ranges) BLOCK %]
+[% srcfile("mipsasm", file, ranges) %]
 [% END %]
 
