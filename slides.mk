@@ -75,7 +75,7 @@ quiet_cmd_tpage = TPAGE $@
 print: $(fontcss) $(print)
 
 %.print.html: INCSLIDES := true
-%.print.html: %.md $(dep)
+%.print.html: %.md $(dep) $$(call find_files,$$(@D)/code)
 	$(call cmd,tpage)
 
 ## PDF main rule
