@@ -121,6 +121,17 @@ li {
 }
 
 /*
+ * Code hovering
+ */
+.remark-code-line {
+  transition: background-color 0.25s ease;
+}
+.remark-code-line:hover {
+  background-color: #D0D0D0;
+  transition: background-color 0s ease;
+}
+
+/*
  * Remarkjs classes
  */
 
