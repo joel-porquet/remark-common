@@ -94,6 +94,7 @@ quiet_cmd_pdfgen = PDF $@
 export: pdf
 	mkdir -p exports
 	cp -u $(pdf) exports
+	zip -r exports/ecs150.zip exports/*.pdf
 
 ## PDF Automatic dependencies
 # Make targets be dependent on all local files (except themselves and the
