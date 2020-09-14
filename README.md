@@ -10,7 +10,8 @@ This build system depends on:
   perl-template-toolkit`.
 - Chromium for PDF generation.
 - `fc-scan` for embedding fonts in CSS
-    - Solves CORS issues with Firefox
+    - Solves [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
+      issues with Firefox
 
 # Usage
 
