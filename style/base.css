@@ -6,7 +6,7 @@
 	 * use this import for browser rendering. For printing, we rely on these
 	 * fonts to be installed locally.
 	 */
-    @import 'fonts/fonts.css';
+    @import 'style/fonts.css';
 }
 
 html {
@@ -302,11 +302,5 @@ table-horizontal tbody > tr:last-child > td {
         transform: scale(1) !important;
         top: 0 !important;
         left: 0 !important;
-    }
-    .remark-code, .remark-inline-code {
-        /* Bug in Chromium preventing from respecting what font.css says */
-        /* https://bugs.chromium.org/p/chromium/issues/detail?id=772482 */
-        /* It works only if the fonts are installed locally on the computer */
-        font-family: 'Noto Sans Mono';
     }
 }
