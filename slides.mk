@@ -26,10 +26,12 @@ pdf := $(print:%.print.html=%.pdf)
 
 ## Extra dependencies for all targets
 dep += $(addprefix $(current_dir),template.html)
-dep += $(addprefix $(current_dir),tt.cfile)
+dep += $(addprefix $(current_dir),tt2/srcfile.tt)
 
 ## Font generation
 fontdir := $(addprefix $(current_dir),fonts)
+fontdir += $(addprefix $(current_dir),vendor/katex/fonts)
+fontttf := $(filter %.ttf,$(call find_files,$(fontdir)))
 fontcss := $(fontdir)/fonts.css
 
 ## Command management and quiet mode
@@ -52,7 +54,7 @@ all: $(fontcss) $(html)
 quiet_cmd_fonts = FONTS $@
       cmd_fonts = $(fontdir)/genfonts.sh \
 				  $^ > $@
-$(fontcss): $(fontdir)/*.ttf
+$(fontcss): $(fontttf)
 	$(call cmd,fonts)
 
 # Get relative path between destination folder $1 and base folder $2
@@ -94,7 +96,7 @@ quiet_cmd_pdfgen = PDF $@
 export: pdf
 	mkdir -p exports
 	cp -u $(pdf) exports
-	zip -r exports/ecs150.zip exports/*.pdf
+	zip -r exports/archive.zip exports/*.pdf
 
 ## PDF Automatic dependencies
 # Make targets be dependent on all local files (except themselves and the
