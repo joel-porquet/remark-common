@@ -3,50 +3,68 @@
     <head>
         <title>[% title %]</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="[% common %]/base.css">
-        [% # Include CSS file 'local.css' if it exists
-           TRY %]
-            [% USE File("local.css") %]
-        <link rel="stylesheet" href="[% File.path %]">
-        [% CATCH %]
-        [% END %]
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="[% common %]/css/base.css">
+        <link rel="stylesheet" href="[% common %]/vendor/katex/katex.min.css">
+        [%
+            TRY;
+                USE File("local.css");
+                # Include CSS file 'local.css' if it exists
+                "<link rel="stylesheet" href="[% File.path %]">"
+            END
+        %]
+
+        <!-- Scripts loading -->
+        <script defer src="[% common %]/vendor/remark/remark.min.js"></script>
+
+        <script defer src="[% common %]/vendor/katex/katex.min.js"></script>
+        <script defer src="[% common %]/vendor/katex/contrib/auto-render.min.js"></script>
+
+        <script defer src="[% common %]/highlightjs/gdb.js"></script>
+        <script defer src="[% common %]/highlightjs/makefile.js"></script>
+        <script defer src="[% common %]/highlightjs/terminal.js"></script>
+
+        <script defer src="[% common %]/remark/filename.js"></script>
+        <script defer src="[% common %]/remark/flush.js"></script>
+        <script defer src="[% common %]/remark/newline.js"></script>
+        <script defer src="[% common %]/remark/scale.js"></script>
+
+        <!-- Slides processing -->
+        <script type="text/javascript">
+            function slides_process()
+            {
+                var remark_opts = {
+                    /* Default language for syntax highlighting */
+                    highlightLanguage: 'terminal',
+                    /* Highlight inline code (inside simple backticks) */
+                    highlightSpans: true,
+                    /* Mark lines marked with an asterix */
+                    highlightLines: true,
+                    /* Configure incremental slides */
+                    disableIncrementalSlides: [% incslides %],
+                    /* Disable counting incremental slides */
+                    countIncrementalSlides: false,
+                };
+
+                var katex_render = function() {
+                    renderMathInElement(document.body, { delimiters: [
+                        {left: "$", right: "$", display: false},
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "$$", right: "$$", display: true},
+                        {left: "\\[", right: "\\]", display: true},
+                    ]});
+                }
+
+                var slideshow = remark.create(remark_opts, katex_render);
+            }
+        </script>
     </head>
-    <body>
+
+    <body onload="slides_process()">
         <textarea id="source">
 [% PROCESS content %]
         </textarea>
-        <!-- <script src="[% common %]/remark-latest.min.js"></script> -->
-        <script src="[% common %]/remark-git.min.js"></script>
-        <script src="[% common %]/hljs.custom.js"></script>
-        <script src="[% common %]/remark.custom.js"></script>
-        <script src="[% common %]/katex.min.js"></script>
-        <script src="[% common %]/auto-render.min.js"></script>
-        <link rel="stylesheet" href="[% common %]/katex.min.css">
-        <script type="text/javascript">
-            var options = {
-                /* Default language for syntax highlighting */
-                highlightLanguage: 'terminal',
-                /* Highlight inline code (inside simple backticks) */
-                highlightSpans: true,
-                /* Mark lines marked with an asterix */
-                highlightLines: true,
-                /* Configure incremental slides */
-                disableIncrementalSlides: [% incslides %],
-                /* Disable counting incremental slides */
-                countIncrementalSlides: false,
-            };
-
-            var renderMath = function() {
-                renderMathInElement(document.body, { delimiters: [
-                    {left: "$", right: "$", display: false},
-                    {left: "\\(", right: "\\)", display: false},
-                    {left: "$$", right: "$$", display: true},
-                    {left: "\\[", right: "\\]", display: true},
-                ]});
-            }
-
-            var slideshow = remark.create(options, renderMath);
-        </script>
     </body>
 </html>
 
