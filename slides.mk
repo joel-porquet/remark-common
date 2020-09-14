@@ -30,8 +30,9 @@ dep += $(addprefix $(current_dir),tt2/srcfile.tt)
 
 ## Font generation
 fontdir := $(addprefix $(current_dir),fonts)
-fontdir += $(addprefix $(current_dir),vendor/katex/fonts)
+fontext := $(addprefix $(current_dir),vendor/katex/fonts)
 fontttf := $(filter %.ttf,$(call find_files,$(fontdir)))
+fontttf += $(filter %.ttf,$(call find_files,$(fontext)))
 fontcss := $(fontdir)/fonts.css
 
 ## Command management and quiet mode
