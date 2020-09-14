@@ -7,13 +7,12 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" href="[% common %]/css/base.css">
         <link rel="stylesheet" href="[% common %]/vendor/katex/katex.min.css">
-        [%
-            TRY;
-                USE File("local.css");
-                # Include CSS file 'local.css' if it exists
-                "<link rel="stylesheet" href="[% File.path %]">"
-            END
-        %]
+        [% TRY %]
+            [% USE File("local.css") %]
+                <!-- Include 'local.css' if it exists -->
+                <link rel="stylesheet" href="[% File.path %]">
+        [% CATCH %]
+        [% END %]
 
         <!-- Scripts loading -->
         <script defer src="[% common %]/vendor/remark/remark.min.js"></script>
