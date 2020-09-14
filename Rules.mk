@@ -29,7 +29,7 @@ dep += $(addprefix $(current_dir),template.html)
 dep += $(addprefix $(current_dir),tt2/srcfile.tt)
 
 ## Font generation
-fontdir := $(addprefix $(current_dir),fonts)
+fontdir := $(addprefix $(current_dir),style)
 fontext := $(addprefix $(current_dir),vendor/katex/fonts)
 fontttf := $(filter %.ttf,$(call find_files,$(fontdir)))
 fontttf += $(filter %.ttf,$(call find_files,$(fontext)))
