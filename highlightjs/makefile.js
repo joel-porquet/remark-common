@@ -1,23 +1,4 @@
 /*
- * Language: GDB prompt
- * Author: Joël Porquet <joel@porquet.org>
- */
-var hljs = remark.highlighter.engine;
-hljs.registerLanguage('gdb',
-  function() {
-    return {
-      contains: [
-        hljs.HASH_COMMENT_MODE,
-        {
-          className: 'section',
-          begin: /^\(gdb\)/,
-        },
-      ]
-    }
-  }
-);
-
-/*
  * Language: Makefile
  * Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
  * Contributors: Joël Porquet <joel@porquet.org>
@@ -106,27 +87,3 @@ hljs.registerLanguage('makefile',
     };
   }
 );
-
-/*
- * Language: terminal console
- * Author: Joël Porquet <joel@porquet.org>
- * Based on file written by Josh Bode <joshbode@gmail.com>
- */
-var hljs = remark.highlighter.engine;
-hljs.registerLanguage('terminal',
-  function() {
-    return {
-      contains: [
-        {
-          className: 'section',
-          begin: /^[\w]*[$#]/,
-          starts: {
-            end: /$/, subLanguage: 'bash',
-            relevance: 1,
-          }
-        },
-      ]
-    }
-  }
-);
-
