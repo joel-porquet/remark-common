@@ -1,7 +1,6 @@
 /*
  * Fonts
  */
-
 @media screen {
 	/* This form of importing fonts does not work when printing. So let's only
 	 * use this import for browser rendering. For printing, we rely on these
@@ -43,10 +42,10 @@ li > ul > li {
     font-size: 95%;
 }
 
+
 /*
  * Colors
  */
-
 :root {
     /* UC Davis Blue */
     --ucd-blue-100: #002855;
@@ -81,6 +80,7 @@ li > ul > li {
     --ucd-black-20: #CCCCCC;
 }
 
+
 /*
  * Margins
  */
@@ -108,10 +108,12 @@ li {
     margin-bottom: 0.2em;
 }
 
+
 /*
  * Images (default width)
  */
 .remark-slide-content img { width: 100%; }
+
 
 /*
  * Code (default background)
@@ -119,6 +121,7 @@ li {
 .remark-inline-code {
     background-color: #F0F0F0; /* Match highlight.js' default color */
 }
+
 
 /*
  * Code hovering
@@ -182,10 +185,10 @@ blockquote {
 /* Comments */
 .comment { display: none }
 
+
 /*
  * Presenter mode
  */
-
 /* Note preview: only show the notes for the current slide, not for the next */
 .remark-notes-area .remark-bottom-area .remark-notes-current-area {
     height: 100%;
@@ -214,7 +217,6 @@ blockquote {
  * https://github.com/yahoo/pure/blob/master/src/tables/css/tables.css and
  * adapted for my needs
  */
-
 table {
     /* Remove spacing between table cells (from Normalize.css) */
     border-collapse: collapse;
@@ -285,6 +287,7 @@ table-horizontal tbody > tr:last-child > td {
     border-bottom-width: 0;
 }
 
+
 /*
  * For printing
  */
@@ -301,8 +304,9 @@ table-horizontal tbody > tr:last-child > td {
         left: 0 !important;
     }
     .remark-code, .remark-inline-code {
-        /* Can't get stupid Chromium to include the monospace fonts I want! */
+        /* Bug in Chromium preventing from respecting what font.css says */
         /* https://bugs.chromium.org/p/chromium/issues/detail?id=772482 */
+        /* It works only if the fonts are installed locally on the computer */
         font-family: 'Noto Sans Mono';
     }
 }
