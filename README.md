@@ -42,7 +42,7 @@ src := slides
 dep := template.md
 
 ## Include common rules
-include common/slides.mk
+include common/Rules.mk
 ```
 
 ## Global template
@@ -91,6 +91,6 @@ Blabla
 ## Local CSS
 
 The `local.css` file is optional. It contain local CSS rules that only apply to
-a deck of slides. It's loaded after `common/base.css` so it can override CSS
-rules.
+a deck of slides. It's loaded after `common/style/base.css` so it can override
+CSS rules.
 
