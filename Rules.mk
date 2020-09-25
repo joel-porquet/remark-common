@@ -87,9 +87,11 @@ pdf: print $(pdf)
 ## HTML to pdf rule
 quiet_cmd_pdfgen = PDF $@
       cmd_pdfgen = chromium --headless --disable-gpu \
-				  --print-to-pdf=$@ \
-				  file://$(abspath $<) \
-				  2>/dev/null
+				   --run-all-compositor-stages-before-draw \
+				   --virtual-time-budget=1000 \
+				   --print-to-pdf=$@ \
+				   file://$(abspath $<) \
+				   2>/dev/null
 %.pdf: %.print.html $(call find_files,$(current_dir))
 	$(call cmd,pdfgen)
 
