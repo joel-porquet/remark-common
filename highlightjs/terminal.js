@@ -10,7 +10,7 @@ hljs.registerLanguage('terminal',
       contains: [
         {
           className: 'section',
-          begin: /^[\w]*[$#] /,
+          begin: /^[\w]*@?[\w]*[$#] /,
           starts: {
             end: /$/, subLanguage: 'bash',
             relevance: 1,
